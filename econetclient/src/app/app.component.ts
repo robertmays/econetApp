@@ -10,7 +10,10 @@ export class AppComponent implements OnInit {
   title = 'Econet';
   users: any;// no type safety
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    //ngx bootstrap is better for angular as it tracks notification changes
+    // bootstrap uses jquery so that can muddle the picture as it manipulates the DOM too!!!!
+  }
 
   ngOnInit() {
     this.getUsers();   
