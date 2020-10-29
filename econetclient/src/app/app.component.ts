@@ -12,13 +12,13 @@ export class AppComponent implements OnInit {
   title = 'Econet';
   users: any;// no type safety
 
-  constructor(private http: HttpClient, private accountService: AccountService) {
+  constructor(private accountService: AccountService) {
     //ngx bootstrap is better for angular as it tracks notification changes
     // bootstrap uses jquery so that can muddle the picture as it manipulates the DOM too!!!!
   }
 
   ngOnInit() {
-    this.getUsers(); 
+    
     this.setCurrentUser();  
   }
 
@@ -29,11 +29,4 @@ export class AppComponent implements OnInit {
     this.accountService.setCurrentUser(user);
   }
 
-  getUsers() {
-    this.http.get('https://localhost:5001/api/users').subscribe(response => {
-      this.users = response;
-    }, error => {
-      console.log(error);
-    });
-  }
 }
