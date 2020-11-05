@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,7 +18,7 @@ namespace API
             _config = config;
         }
 
-        public IConfiguration Configuration { get; }
+      
 
         // This method gets called by the runtime. Use this method to add services to the DI container.
         public void ConfigureServices(IServiceCollection services)
@@ -39,14 +40,17 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // ordering in here is important!!!!
+
+            //global error handling
+            app.UseMiddleware<ExceptionMiddleware>();
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
-            app.UseHttpsRedirection(); //redirtect to https
+            app.UseHttpsRedirection(); //redirect to https
 
             app.UseRouting();
 
