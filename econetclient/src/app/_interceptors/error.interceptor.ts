@@ -12,7 +12,8 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-
+  //this allows us to check every response that comes back from our API, 
+  //and deal with any errors
   constructor(private router: Router, private toastr: ToastrService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -33,7 +34,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               }
               break;
               case 401:
-                this.toastr.error(error.statusText === 'OK' ? 'Unauthorised' : error.statusText, error.status);
+                this.toastr.error(error.statusText === 'OK' ? 'Unauthorized' : error.statusText, error.status);
               break;
               case 404:
                 this.router.navigateByUrl('/not-found');

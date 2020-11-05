@@ -1,0 +1,47 @@
+[
+    {
+    "HouseNumberName": "12",
+    "Line1": "Bond Street",
+    "Line2": "Hope Park",
+    "Town": "Salford",
+    "City": "Worcester",
+    "County": "Worcestershire",
+    "Postcode": "WR9 3ER",
+    "Photos": [
+        {
+          "Url": "https://randomuser.me/api/portraits/men/98.jpg",
+          "IsMain": true
+        }
+      ]
+    },
+    {
+        "HouseNumberName": "44",
+        "Line1": "Jasper Street",
+        "Line2": "Hope District",
+        "Town": "Droitwich",
+        "City": "Worcester",
+        "County": "Worcestershire",
+        "Postcode": "WR9 7ER",
+        "Photos": [
+            {
+              "Url": "https://randomuser.me/api/portraits/men/23.jpg",
+              "IsMain": true
+            }
+          ]
+    },
+    {
+        "HouseNumberName": "Sunrise",
+        "Line1": "Holiday Park",
+        "Line2": "Sea village",
+        "Town": "Pershore",
+        "City": "Worcester",
+        "County": "Worcestershire",
+        "Postcode": "WR6 7ER",
+        "Photos": [
+            {
+              "Url": "https://randomuser.me/api/portraits/men/55.jpg",
+              "IsMain": true
+            }
+          ]
+    }
+]
