@@ -1,0 +1,23 @@
+[
+    {
+        "Created": "2020-11-06",
+        "EnquiryDate": "2020-11-06",
+        "CustomerId": 1,
+        "MeasureTypeId": 1,
+        "MeasureAddedBy": "Mandie"
+    },
+    {
+        "Created": "2020-11-06",
+        "EnquiryDate": "2020-11-06",
+        "CustomerId": 2,
+        "MeasureTypeId": 2,
+        "MeasureAddedBy": "Jess"
+    },
+    {
+        "Created": "2020-11-06",
+        "EnquiryDate": "2020-11-06",
+        "CustomerId": 3,
+        "MeasureTypeId": 3,
+        "MeasureAddedBy": "Mandie"
+    }
+]

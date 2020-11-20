@@ -8,7 +8,10 @@
       "Title": "Mr",
       "Initials": "RM",
       "Lastname": "Mays",
-      "AddressId": 1    
+      "AddressId": 1,
+      "MobileNumber": "01234 5678",
+      "WorkNumber": "23456 0987",
+      "HomeNumber": "231313 35095-1"    
     },
     {
         "KnownAs": "Angus",
@@ -19,7 +22,10 @@
         "Title": "Mr",
         "Initials": "AA",
         "Lastname": "Anglin",
-        "AddressId": 2    
+        "AddressId": 2,
+        "MobileNumber": "01234 5678",
+        "WorkNumber": "23456 0987",
+        "HomeNumber": "231313 35095-1"      
       },
       {
           "KnownAs": "Holly",
@@ -30,7 +36,10 @@
           "Title": "Miss",
           "Initials": "HA",
           "Lastname": "Anderson",
-          "AddressId": 3    
+          "AddressId": 3,
+          "MobileNumber": "01234 5678",
+          "WorkNumber": "23456 0987",
+          "HomeNumber": "231313 35095-1"   
         }
    
     

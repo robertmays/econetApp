@@ -44,7 +44,7 @@ namespace API.Data
             await context.SaveChangesAsync();
         }
 
-         public static async Task SeedCustomers(DataContext context)
+        public static async Task SeedCustomers(DataContext context)
         {
             if (await context.Customers.AnyAsync()) return;
 
@@ -53,6 +53,32 @@ namespace API.Data
             foreach (var customer in customers)
             {
                 context.Customers.Add(customer);
+            }
+            await context.SaveChangesAsync();
+        }
+
+        public static async Task SeedMeasureTypes(DataContext context)
+        {
+            if (await context.MeasureTypes.AnyAsync()) return;
+
+            var measureTypeData = await System.IO.File.ReadAllTextAsync("Data/MeasureTypeSeedData.json");
+            var measureTypes = JsonSerializer.Deserialize<List<MeasureType>>(measureTypeData);
+            foreach (var type in measureTypes)
+            {
+                context.MeasureTypes.Add(type);
+            }
+            await context.SaveChangesAsync();
+        }
+
+        public static async Task SeedMeasures(DataContext context)
+        {
+            if (await context.Measures.AnyAsync()) return;
+
+            var measuresData = await System.IO.File.ReadAllTextAsync("Data/MeasuresSeedData.json");
+            var measures = JsonSerializer.Deserialize<List<Measure>>(measuresData);
+            foreach (var measure in measures)
+            {
+                context.Measures.Add(measure);
             }
             await context.SaveChangesAsync();
         }

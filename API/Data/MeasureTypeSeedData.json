@@ -1,0 +1,38 @@
+[
+    {
+        "Name": "Loft Insulation",
+        "Code": "LI",
+        "IsActive": true,
+        "Created": "2020-11-06"
+    },
+    {
+        "Name": "Heating",
+        "Code": "H",
+        "IsActive": true,
+        "Created": "2020-11-06"
+    },
+    {
+        "Name": "Cavity Wall",
+        "Code": "CWI",
+        "IsActive": true,
+        "Created": "2020-11-06"
+    },
+    {
+        "Name": "Remedial",
+        "Code": "RM",
+        "IsActive": true,
+        "Created": "2020-11-06"
+    },
+    {
+        "Name": "Other",
+        "Code": "OTH",
+        "IsActive": true,
+        "Created": "2020-11-06"
+    },
+    {
+        "Name": "Customer Care",
+        "Code": "CC",
+        "IsActive": true,
+        "Created": "2020-11-06"
+    }
+]

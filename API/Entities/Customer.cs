@@ -16,6 +16,9 @@ namespace API.Entities
         public string Title { get; set; }
         public string Initials { get; set; }
         public string Lastname { get; set; }
+        public string MobileNumber { get; set; }
+        public string WorkNumber { get; set; }
+        public string HomeNumber { get; set; }
         public int GetAge()
         {
             return DateOfBirth.CalculateAge();

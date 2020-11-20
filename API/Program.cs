@@ -27,6 +27,8 @@ namespace API
                 await Seed.SeedUsers(context);
                 await Seed.SeedAddressess(context);
                  await Seed.SeedCustomers(context);
+                 await Seed.SeedMeasureTypes(context);
+                 await Seed.SeedMeasures(context);
             }
             catch (Exception ex)
             {
