@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
 
 @Injectable({  
@@ -10,7 +11,7 @@ import { User } from '../_models/user';
 export class AccountService {
   //singleton while application lifetime, so data here live while client in the browser
   //whereas components are destroyed as soon as they go out of use
-  baseUrl = 'https://localhost:44374/api/';
+  baseUrl = environment.apiUrl;
   //ReplaySubject like a buffer to store values sets up as an observable so out other components can subscribe
   //to it. especially or _auth guard so it can see ig a user changes
   //(1) store one previous value
