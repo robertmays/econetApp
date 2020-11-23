@@ -22,10 +22,12 @@ namespace API.Entities
         public string Initials { get; set; }
         public string Lastname { get; set; }
         public ICollection<UserPhoto> Photos {get; set;}
-        public int GetAge()
-        {
-            return DateOfBirth.CalculateAge();;
-        }
+
+        
+        // public int GetAge()
+        // {
+        //     return DateOfBirth.CalculateAge();;
+        // }
 
     }
 }
