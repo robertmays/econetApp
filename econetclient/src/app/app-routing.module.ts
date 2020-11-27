@@ -11,6 +11,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
+      { path: 'employees', component: EmployeeListComponent },
       { path: 'customers', component: CustomerListComponent },
       { path: 'customers/:id', component: CustomerDetailComponent },
       { path: 'lists', component: ListsComponent },

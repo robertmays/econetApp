@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { MemberListComponent } from './members/member-list/member-list.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { CustomerDetailComponent } from './customers/customer-detail/customer-detail.component';
 import { ListsComponent } from './lists/lists.component';
@@ -20,6 +19,8 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
 
 
 @NgModule({
@@ -28,7 +29,6 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    MemberListComponent,
     CustomerListComponent,
     CustomerDetailComponent,
     ListsComponent,
@@ -36,7 +36,9 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     SearchComponent,
     TestErrorsComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    EmployeeListComponent,
+    EmployeeCardComponent
   ],
   imports: [
     BrowserModule,
