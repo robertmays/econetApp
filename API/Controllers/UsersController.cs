@@ -25,7 +25,7 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployees()
         {
             //IEnumerable is just simpler form of List. List give more methods but we don't need them for this
             // async makes our api lots more scalable  
@@ -33,11 +33,11 @@ namespace API.Controllers
             return Ok(users);
         }
 
-        // api/users/3
-        [HttpGet("{username}")]
-        public async Task<ActionResult<EmployeeDto>> GetUser(string username)
+
+         [HttpGet("{id}")]
+        public async Task<ActionResult<EmployeeDto>> GetEmployeeById(int id)
         {
-            return await _userRepository.GetEmployeeAsync(username);
+            return await _userRepository.GetEmployeeByIdAsync(id);
         }
     }
 }

@@ -21,6 +21,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { EmployeeCardComponent } from './employees/employee-card/employee-card.c
     NotFoundComponent,
     ServerErrorComponent,
     EmployeeListComponent,
-    EmployeeCardComponent
+    EmployeeCardComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { EmployeeCardComponent } from './employees/employee-card/employee-card.c
   ],
   providers: [
     //multi: true means add this to angular list of internal interceptors and not replace
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
