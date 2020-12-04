@@ -14,6 +14,9 @@ export class EmployeeDetailComponent implements OnInit {
   constructor(private employeeService: EmployeesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //remember Rob your html page will load before this completes
+    //so any interpolation on the html page will be undefind
+    //so add *ngIf="employee" to your html tags to make sure our employee is available
     this.loadEmployee();
   }
 

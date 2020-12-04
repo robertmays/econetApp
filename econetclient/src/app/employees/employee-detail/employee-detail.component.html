@@ -1,1 +1,30 @@
-<h1>{{ employee.knownAs }}</h1>
+<div class="row" *ngIf="employee">
+    <div class="col-4">
+        <img src="{{employee.photoUrl || './assets/user.png'}}" alt="{{employee.knownAs}}" 
+                class="card-img-top img-thumbnail">
+        <div class="card-body">
+            <div>
+                <strong>{{ employee.knownAs }}</strong>
+                <p>{{ employee.title }} {{ employee.lastname }}</p>
+            </div>
+            <div>
+                <strong>Created:</strong>
+                <p>{{ employee.created }}</p>
+            </div>
+            <div>
+                <strong>Last Activity Date:</strong>
+                <p>{{ employee.lastActive }}</p>
+            </div>
+            <div>
+                <strong>Gender:</strong>
+                <p>{{ employee.gender }}</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group d-flex">
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-success">Message</button>
+            </div>
+        </div>
+    </div>
+</div>

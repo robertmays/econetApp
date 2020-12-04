@@ -33,10 +33,10 @@ namespace API.Data
                     .ProjectTo<EmployeeDto>(_mapper.ConfigurationProvider)
                     .ToListAsync();
         }
-
-        //this is the logged in user
+       
         public async Task<AppUser> GetUserByIdAsync(int id)
         {
+             //this is the logged in user
             return await _context.Users.Where(u => u.Id == id)
                          .SingleOrDefaultAsync();
         }     
