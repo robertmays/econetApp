@@ -7,11 +7,10 @@ namespace API.Interfaces
 {
     public interface IUserRepository
     {
-        void Update(AppUser user);//only updates the tracking status so need to be async
+        void Update(Employee user);//only updates the tracking status so need to be async
         Task<bool> SaveAllAsync();
-        Task<IEnumerable<AppUser>> GetUsersAsync();
-        Task<AppUser> GetUserByIdAsync(int id);
-        Task<IEnumerable<EmployeeDto>> GetEmployeesAsync();
-        Task<EmployeeDto> GetEmployeeByIdAsync(int id);
+        Task<EmployeeDto> GetEmployeeByUsernameAsync(string username);
+        Task<Employee> GetUserByUsernameAsync(string username);
+        Task<IEnumerable<Employee>> GetEmployeesAsync();
     }
 }

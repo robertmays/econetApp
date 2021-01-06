@@ -16,7 +16,11 @@ export class EmployeesService {
     return this.http.get<Employee[]>(this.baseUrl + 'users');
   }
 
-  getEmployee(id: string) {
-    return this.http.get<Employee>(this.baseUrl + 'users/' + id);
+  getEmployee(username: string) {
+    return this.http.get<Employee>(this.baseUrl + 'users/' + username);
+  }
+
+  updateEmployee(employee: Employee) {
+    return this.http.put(this.baseUrl + 'users', employee);
   }
 }

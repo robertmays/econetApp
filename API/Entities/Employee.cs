@@ -4,19 +4,19 @@ using API.Extensions;
 
 namespace API.Entities
 {
-    public class AppUser
+    public class Employee
     {
-        //properties need to be publie to work with Entity framework
+        //properties need to be public to work with Entity framework
         // use Id as for entity framework later it will create an autoincrement
         public int Id { get; set; }
-        // case on UserName is crucial for when we implemnet asp Identity done use case = Username it will create lot less refactoring
+        // case on UserName is crucial for when we implement asp Identity done use case = Username it will create lot less refactoring
         public string UserName { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string KnownAs { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime LastActive { get; set; } = DateTime.Now;
-         public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public string Title { get; set; }
         public string Initials { get; set; }

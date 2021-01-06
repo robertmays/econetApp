@@ -1,0 +1,78 @@
+<div class="row" *ngIf="employee">
+  <div class="col-4">
+    <h1>Your Profile</h1>
+  </div>
+  <div class="col-8">
+    <div class="alert alert-info" *ngIf="editForm.dirty">
+      <strong>Information: </strong> You have made changes. Any unsaved changes will be lost
+    </div>
+  </div>
+  <div class="col-4">
+    <img src="{{employee.photoUrl || './assets/user.png'}}" alt="{{employee.knownAs}}"
+      class="card-img-top img-thumbnail">
+    <div class="card-body">
+      <div>
+        <strong>{{ employee.knownAs }}</strong>
+        <p>{{ employee.title }} {{ employee.lastname }}</p>
+      </div>
+      <div>
+        <strong>Created:</strong>
+        <p>{{ employee.created }}</p>
+      </div>
+      <div>
+        <strong>Last Activity Date:</strong>
+        <p>{{ employee.lastActive }}</p>
+      </div>
+      <div>
+        <strong>Gender:</strong>
+        <p>{{ employee.gender }}</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button form="editForm" [disabled]="!editForm.dirty" class="btn btn-success btn-block">Save Changes</button>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <tabset class="employee-tabset">
+      <tab heading='About {{ employee.knownAs }}'>
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateEmployee()">
+          <h4>Known As</h4>
+          <input [(ngModel)]="employee.knownAs" type="text" name="knownAs" class="form-control mx-2">
+          <h4>Title</h4>
+          <input [(ngModel)]="employee.title" type="text" name="title" class="form-control mx-2">
+          <h4>Lastname</h4>
+          <input [(ngModel)]="employee.lastname" type="text" name="lastname" class="form-control mx-2">
+          <!-- <h4>Description</h4>
+          <textarea class="form-control mx-2" name="description" rows="6"></textarea> -->
+          <h4 class="mt-2">Job Title</h4>
+          <p>Add Job Title later</p>
+          <!-- <h4 class="mt-2">Address</h4>
+          <div class="form-group">
+            <label for="houseNumber">House Number: </label>
+            <input type="text" name="houseNumber" class="form-control mx-2">
+            <label for="town">Town: </label>
+            <input type="text" name="town" class="form-control mx-2">
+            <label for="city">City: </label>
+            <input type="text" name="city" class="form-control mx-2">
+            <label for="postcode">Postcode: </label>
+            <input type="text" name="postcode" class="form-control mx-2">
+          </div> -->
+        </form>
+
+      </tab>
+      <tab heading='Department'>
+        <h4>Department</h4>
+        <p>I can add a description later</p>
+      </tab>
+      <tab heading='Edit Photos'>
+        <p>Photo edit will go here</p>
+      </tab>
+      <tab heading='Messages'>
+        <h4>Messages</h4>
+        <p>I can add a description later</p>
+
+      </tab>
+    </tabset>
+  </div>
+</div>

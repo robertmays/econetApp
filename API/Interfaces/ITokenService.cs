@@ -6,6 +6,6 @@ namespace API.Interfaces
     //2 best practice
     public interface ITokenService
     {
-        string CreateToken(AppUser user);
+        string CreateToken(Employee user);
     }
 }

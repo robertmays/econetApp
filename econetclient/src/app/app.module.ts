@@ -23,6 +23,7 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
 import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
+import { EmployeeEditComponent } from './employees/employee-edit/employee-edit.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { EmployeeDetailComponent } from './employees/employee-detail/employee-de
     ServerErrorComponent,
     EmployeeListComponent,
     EmployeeCardComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,

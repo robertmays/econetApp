@@ -49,7 +49,7 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   loadEmployee() {
-    this.employeeService.getEmployee(this.route.snapshot.paramMap.get('id')).subscribe(employee => {
+    this.employeeService.getEmployee(this.route.snapshot.paramMap.get('username')).subscribe(employee => {
       console.log(employee);
       this.employee = employee;
       //now i got the employee i can set the property below

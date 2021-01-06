@@ -13,7 +13,7 @@ namespace API.Entities
         //fully define the relationship between user and their photo
         // so if you delete a user cascade delete will be implemented
         //in our migration and rule set up in the database
-        public AppUser AppUser { get; set; }
-        public int AppUserId { get; set; }
+        public Employee Employee { get; set; }
+        public int EmployeeId { get; set; }
     }
 }

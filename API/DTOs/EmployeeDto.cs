@@ -8,6 +8,7 @@ namespace API.DTOs
     {
         
         public int Id { get; set; }
+        public int EmployeeId { get; set; }
         // case on UserName is crucial for when we implemnet asp Identity done use case = Username it will create lot less refactoring
         public string Username { get; set; } 
         public string PhotoUrl { get; set; }      

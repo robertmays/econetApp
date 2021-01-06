@@ -7,6 +7,7 @@ using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace API.Data
 {
@@ -19,45 +20,41 @@ namespace API.Data
             _mapper = mapper;
             _context = context;
         }
-
-        public async Task<EmployeeDto> GetEmployeeByIdAsync(int id)
-        {
-            return await _context.Users.Where(u => u.Id == id)
-                         .ProjectTo<EmployeeDto>(_mapper.ConfigurationProvider)
-                         .SingleOrDefaultAsync();
-        }
-
-        public async Task<IEnumerable<EmployeeDto>> GetEmployeesAsync()
-        {
-            return await _context.Users
-                    .ProjectTo<EmployeeDto>(_mapper.ConfigurationProvider)
-                    .ToListAsync();
-        }
-       
-        public async Task<AppUser> GetUserByIdAsync(int id)
-        {
-             //this is the logged in user
-            return await _context.Users.Where(u => u.Id == id)
-                         .SingleOrDefaultAsync();
-        }     
-
-        public async Task<IEnumerable<AppUser>> GetUsersAsync()
-        {
-            return await _context.Users
-                        .Include(p => p.Photos)
-                        .ToListAsync();
-        }
-
+        
         public async Task<bool> SaveAllAsync()
         {
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public void Update(AppUser user)
+
+        public void Update(Employee user)
         {
-            //mark entity as modified
             _context.Entry(user).State = EntityState.Modified;
         }
 
+        public async Task<EmployeeDto> GetEmployeeByUsernameAsync(string username)
+        {
+            var user = _context.Users.Where(u => u.UserName == username);
+
+            var expression = _context.Users.ProjectTo<EmployeeDto>(_mapper.ConfigurationProvider).Expression;
+
+           // var employeeDto = _mapper.Map<EmployeeDto>(user, _);
+           // var serialized = JsonConvert.SerializeObject(employeeDto, Formatting.Indented);
+
+            var employee = await user.ProjectTo<EmployeeDto>(_mapper.ConfigurationProvider)
+            .SingleOrDefaultAsync();
+
+            return employee;
+        }
+
+        public async Task<IEnumerable<Employee>> GetEmployeesAsync()
+        {
+            return await _context.Users.ToListAsync();
+        }
+
+        public async Task<Employee> GetUserByUsernameAsync(string username)
+        {
+           return await _context.Users.Where(u => u.UserName == username).SingleOrDefaultAsync();;
+        }
     }
 }

@@ -78,7 +78,7 @@ namespace API.Data.Migrations
                     b.ToTable("AddressPhotos");
                 });
 
-            modelBuilder.Entity("API.Entities.AppUser", b =>
+            modelBuilder.Entity("API.Entities.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -290,13 +290,13 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.UserPhoto", b =>
                 {
-                    b.HasOne("API.Entities.AppUser", "AppUser")
+                    b.HasOne("API.Entities.Employee", "Employee")
                         .WithMany("Photos")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("API.Entities.Address", b =>
@@ -304,7 +304,7 @@ namespace API.Data.Migrations
                     b.Navigation("Photos");
                 });
 
-            modelBuilder.Entity("API.Entities.AppUser", b =>
+            modelBuilder.Entity("API.Entities.Employee", b =>
                 {
                     b.Navigation("Photos");
                 });

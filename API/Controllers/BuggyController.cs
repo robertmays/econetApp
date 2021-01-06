@@ -21,7 +21,7 @@ namespace API.Controllers
         }
         
         [HttpGet("not-found")]
-        public ActionResult<AppUser> GetNotFound()
+        public ActionResult<Employee> GetNotFound()
         {
            var thing = _context.Users.Find(-1);
 
@@ -41,7 +41,7 @@ namespace API.Controllers
         }
 
         [HttpGet("bad-request")]
-        public ActionResult<AppUser> GetBadRequest()
+        public ActionResult<Employee> GetBadRequest()
         {
             return BadRequest("this was not a good request");
         }
