@@ -49,12 +49,10 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   updateEmployee() {
-    console.log(this.employee);
-    
     this.employeeService.updateEmployee(this.employee).subscribe(employee => {
-      this.toastr.success('Employee updated successfully');
-      //reset the form and keep our values
-      this.editForm.reset(this.employee);
+      this.toastr.success('Your profile was updated successfully');
+      //reset the form and keep our values in view for the user
+      this.editForm.reset(this.employee); // updates the dirty status to clean
     });
     
   }

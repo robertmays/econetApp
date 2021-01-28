@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    // always use postman to test your api client
     [Authorize]
     public class UsersController : BaseApiController
     {
@@ -32,6 +33,8 @@ namespace API.Controllers
 
         //[HttpGet("{username}")] and [HttpGet("{id}")] are the same for routing
         //so you would need to use [HttpGet("id:/{id}")]
+        //remember rob routing to work needs to be unique so if for eg. you have more than one
+        //HttpPut request make sure you don't create duplicate paths
        
         [HttpGet("{username}")]
         public async Task<ActionResult<EmployeeDto>> GetEmployeeByUsername(string username)
@@ -44,10 +47,12 @@ namespace API.Controllers
         {
             // this only works for the logged on **user**********
             //we do not need to return an object back to user 
-            //as they already ahd it and they are sending the update to us
+            //as they already have it and they are sending the update to us.
+
             //never trust what a user sends you. validate it from the token first
-            //
+            //use the claims principle User that we have access to.
             var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            
             var user = await _userRepository.GetUserByUsernameAsync(username);
 
             _mapper.Map(employeeUpdateDto, user);

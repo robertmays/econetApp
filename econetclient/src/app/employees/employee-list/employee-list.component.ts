@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Employee } from 'src/app/_models/employee';
 import { EmployeesService } from 'src/app/_services/employees.service';
 
@@ -8,19 +9,13 @@ import { EmployeesService } from 'src/app/_services/employees.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  employees: Employee[];
+  //$ tells me this is an observable
+  employees$: Observable<Employee[]>;
 
   constructor(private employeeService: EmployeesService) { }
 
   ngOnInit(): void {
-    this.loadEmployees();
-  }
-
-  loadEmployees() {
-    this.employeeService.getEmployees().subscribe(employees => {
-      //dont need error handling as our interceptors take care of it.
-      this.employees = employees;
-    });
+    this.employees$ = this.employeeService.getEmployees();
   }
 
 }
