@@ -23,7 +23,23 @@ namespace API.Data
         
         public async Task<bool> SaveAllAsync()
         {
-            return await _context.SaveChangesAsync() > 0;
+            try
+            {
+                var result =  await _context.SaveChangesAsync();
+                return result > 0;
+            }
+            catch (DbUpdateConcurrencyException e)
+            {                
+                var seeError = e.Message;
+            }
+            catch (DbUpdateException ex)
+            {                
+                var seeError = ex.Message;
+            }
+            
+
+            return false;
+            
         }
 
 
@@ -54,7 +70,9 @@ namespace API.Data
 
         public async Task<Employee> GetUserByUsernameAsync(string username)
         {
-           return await _context.Users.Where(u => u.UserName == username).SingleOrDefaultAsync();;
+            return await _context.Users
+                .Include(p => p.Photos)
+                .SingleOrDefaultAsync(x => x.UserName == username);
         }
     }
 }

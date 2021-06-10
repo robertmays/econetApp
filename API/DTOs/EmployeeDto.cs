@@ -20,6 +20,6 @@ namespace API.DTOs
         public string Title { get; set; }
         public string Initials { get; set; }
         public string Lastname { get; set; }
-        public ICollection<UserPhotoDto> Photos {get; set;}
+        public ICollection<UserPhoto> Photos {get; set;}
     }
 }

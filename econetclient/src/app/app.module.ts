@@ -26,6 +26,7 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
 import { EmployeeEditComponent } from './employees/employee-edit/employee-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { PhotoEditorComponent } from './employees/photo-editor/photo-editor.component';
 
 
 
@@ -46,7 +47,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     EmployeeListComponent,
     EmployeeCardComponent,
     EmployeeDetailComponent,
-    EmployeeEditComponent
+    EmployeeEditComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserModule,

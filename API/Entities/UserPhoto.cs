@@ -14,6 +14,6 @@ namespace API.Entities
         // so if you delete a user cascade delete will be implemented
         //in our migration and rule set up in the database
         public Employee Employee { get; set; }
-        public int EmployeeId { get; set; }
+        //public int EmployeeId { get; set; }
     }
 }

@@ -7,7 +7,7 @@ import { Employee } from '../_models/employee';
 
 //services are singletons, so when a component create a service it stays alive until the application is closed
 //so services are a good candidate for storing application state
-// so we try and get employees from the service first else make http call 
+// so we try and get employees from the service first else make http api call 
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +19,15 @@ export class EmployeesService {
   constructor(private http: HttpClient) { }
 
   getEmployees() {
-    if (this.employees.length > 0) return of(this.employees);
+    if (this.employees.length > 0){
+      console.log('from service state:' + this.employees[0].username);
+      return of(this.employees);
+      
+    } 
     return this.http.get<Employee[]>(this.baseUrl + 'users').pipe(
-      map(employees => {
+      map(employees => {       
         this.employees = employees;
+        console.log('from service http call:' + this.employees[0].username);
         return employees;
       })
     );
@@ -43,5 +48,13 @@ export class EmployeesService {
         this.employees[index] = employee;
       })
     );
+  }
+
+  setMainPhoto(photoId: number) {
+    return this.http.put(this.baseUrl + 'users/set-main-photo' + photoId, {});
+  }
+
+  deletePhoto(photoId: Number){
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
 }

@@ -35,25 +35,27 @@ export class EmployeeDetailComponent implements OnInit {
     ];    
   }
 
-  getImages(): NgxGalleryImage[] {
-    const imageUrls = [];
-    for (const photo of this.employee.photos) {
-      imageUrls.push({
-        small: photo?.url,
-        medium: photo?.url,
-        big: photo?.url
-      });
-    }
+  // getImages(): NgxGalleryImage[] {
+  //   const imageUrls = [];
+  //   for (const photo of this.employee.photos) {
+  //     imageUrls.push({
+  //       small: photo?.url,
+  //       medium: photo?.url,
+  //       big: photo?.url
+  //     });
+  //   }
 
-    return imageUrls;
-  }
+  //   return imageUrls;
+  // }
 
   loadEmployee() {
     this.employeeService.getEmployee(this.route.snapshot.paramMap.get('username')).subscribe(employee => {
+      console.log("Hi Rob");
+      console.log(this.route);
       console.log(employee);
       this.employee = employee;
       //now i got the employee i can set the property below
-      this.galleryImages = this.getImages();
+      //this.galleryImages = this.getImages();
     });
   }
 
